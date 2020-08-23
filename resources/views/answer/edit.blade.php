@@ -11,7 +11,7 @@
                 @csrf
                 @method('PATCH')
                   <div class="form-group">
-                  <textarea name="description" class="form-control" rows="6" placeholder="Type your Answer here!">{{$answer->description}}</textarea>
+                  <textarea name="description" id="editor"class="form-control" rows="6" placeholder="Type your Answer here!">{{$answer->description}}</textarea>
                   </div>
                   <div class="d-flex">
                     <input type="submit" class="btn btn-primary ml-auto" value="Edit">
@@ -19,7 +19,14 @@
                 </form>
     </div>
     </div>
-    
+
 </div>
-   
+
+@endsection
+@section('extra-js')
+       <script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+        <script>
+            CKEDITOR.replace( 'editor' );
+        </script>
+
 @endsection

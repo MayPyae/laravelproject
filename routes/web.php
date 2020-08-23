@@ -38,3 +38,4 @@ Route::resource('/question/{question}/answer', 'AnswerController');
 Route::post('/answer/{answer}/like','LikeController@like')->name('like');
 Route::post('/answer/{answer}/unlike','LikeController@unlike')->name('unlike');
 Route::resource('/question/category', 'CategoryrController');
+Route::get('/user/history','HistoryController')->name('history');

@@ -66,7 +66,7 @@
                 </div>
                 <div class="row align-items-stretch">
                     @foreach ($categories as $category)
-                        <a href="{{route('question.index',['category'=>$category->name])}}" class="btn {{Request::query('category') == $category->name ? 'btn-primary' : 'btn-outline-primary disabled'}} mx-1">{{$category->name}}</a>
+                        <a href="{{route('question.index',['category'=>$category->name])}}" class="btn {{Request::query('category') == $category->name ? 'btn-primary' : 'btn-outline-primary '}} mx-1">{{$category->name}}</a>
 
 
                     @endforeach
@@ -106,7 +106,7 @@
                     <div class="d-flex tutorial-item mb-4">
                         <div class="w-100">
                       <h3><a href="{{route('question.show',$question->id)}}">{{$question->title}}</a></h3>
-                      <p>{{Str::limit($question->description,250)}}</p>
+                      <p>{{strip_tags(Str::limit($question->description,250))}}</p>
 
                         <p class="mb-0">
                            @foreach ($question->categories as $category)

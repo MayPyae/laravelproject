@@ -13,48 +13,69 @@
 
             <div class="col-3">
               <div class="site-logo">
-                <a href="index.html"><strong>Tutor</strong></a>
+                <a href="{{route('question.index')}}"><strong>Forum</strong></a>
               </div>
             </div>
 
             <div class="col-9  text-right">
-              
+
               <span class="d-inline-block d-lg-none"><a href="#" class=" site-menu-toggle js-menu-toggle py-5 "><span class="icon-menu h3 text-black"></span></a></span>
 
               <nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
-                {{-- <ul class="site-menu main-menu js-clone-nav ml-auto ">
-                <li class="{{Request::segment(1)=='' ? 'active' : ''}}"><a href="{{route('index')}}" class="nav-link">Home</a></li>
-                <li class="{{Request::segment(1)=='tutorial' ? 'active' : ''}}" ><a href="{{route('tutorial')}}" class="nav-link">Tutorials</a></li>
-                <li class="{{Request::segment(1)=='test' ? 'active' : ''}}"><a href="{{route('test')}}" class="nav-link">Testimonials</a></li>
-                  <li class="{{Request::segment(1)=='blog' ? 'active' : ''}}" ><a href="{{route('blog')}}" class="nav-link">Blog</a></li>
-                  <li class="{{Request::segment(1)=='about' ? 'active' : ''}}"><a href="{{route('about')}}" class="nav-link">About</a></li>
-                  <li class="{{Request::segment(1)=='contact' ? 'active' : ''}}"><a href="{{route('contact')}}" class="nav-link">Contact</a></li> --}}
+
+                <ul class="site-menu main-menu js-clone-nav ml-auto ">
+
+
                   @if (Auth::check())
-                      <li>
-                  <form action="{{route('logout')}}" method="POST">
-                    @csrf
-                   <button class="btn btn-primary px-4">Logout</button>
-                  </form>
-                  </li>
+                     <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle p-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><img src="{{asset('images/user.png')}}" height="50px">
+                        <div class="dropdown-menu"></a>
+                        <a class="dropdown-item" href="#">
+                            <div class="d-flex align-items-center">
+
+                         <img src="{{asset('images/user.png')}}" height="50px">
+                                <div class="ml-1">
+                                    <h5 class="mb-0">{{Auth::user()->name}} </h5>
+                                        <p class="mb-0 text-dark">
+                                               {{Auth::user()->email}}
+                                        </p>
+
+                                </div>
+                             </div>
+                        </a>
+                         <div class="dropdown-divider"></div>
+
+                        <a class="dropdown-item text-primary" href="{{route('history')}}">My History</a>
+
+                        <a class="dropdown-item" >
+                             <form action="{{route('logout')}}" method="POST">
+                                    @csrf
+                                <button class="border-0 bg-transparent text-danger">Logout</button>
+
+                            </form>
+                        </a>
+                        </div>
+                    </li>
+
                   @else
-            
+
                   <li>
                   <a href="{{route('login')}}" class="nav-link">
                     <button class="btn btn-success px-4">Login</button>
                   </a>
-                  
+
                   </li>
                   <li>
                   <a href="{{route('register')}}" class="nav-link"><button class="btn btn-primary px-4">Register</button>
                   </a>
-                  
+
                   </li>
                      @endif
                 </ul>
               </nav>
             </div>
 
-            
+
           </div>
         </div>
 

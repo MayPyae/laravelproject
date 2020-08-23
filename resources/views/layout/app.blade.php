@@ -20,7 +20,7 @@
         </div>
     </div>
     @yield('content')
-    
+
     @include('layout/footer')
   </div>
    <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
@@ -36,6 +36,8 @@
     <script src="{{asset('js/aos.js')}}"></script>
 
     <script src="{{asset('js/main.js')}}"></script>
-    
+    @yield('extra-js')
+
+
 </body>
 </html>

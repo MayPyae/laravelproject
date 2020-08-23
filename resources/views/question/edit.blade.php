@@ -33,7 +33,7 @@
 
               <div class="form-group row">
                 <div class="col-md-12">
-                <textarea name="description" id="" class="form-control" placeholder="Explain your question here" cols="30" rows="10" required>{{$question->description}}</textarea>
+                <textarea name="description" id="editor" class="form-control" placeholder="Explain your question here" cols="30" rows="10" required>{{$question->description}}</textarea>
                 </div>
               </div>
               <div class="form-group row">
@@ -45,4 +45,11 @@
           </div>
 
         </div>
+@endsection
+@section('extra-js')
+       <script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+        <script>
+            CKEDITOR.replace( 'editor' );
+        </script>
+
 @endsection

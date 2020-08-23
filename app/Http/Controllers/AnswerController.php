@@ -65,12 +65,9 @@ class AnswerController extends Controller
      * @param  \App\Answer  $answer
      * @return \Illuminate\Http\Response
      */
-    public function edit($question, $answer)
+    public function edit(Question $question,Answer $answer)
     {
          $this->authorize('update',$answer);
-        $question = Question::find($question);
-        $answer = $question->answers()->where('id',$answer)->first();
-
 
         return view('answer/edit',compact('question','answer'));
     }
@@ -82,11 +79,10 @@ class AnswerController extends Controller
      * @param  \App\Answer  $answer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$question,  $answer)
+    public function update(Request $request,$question,Answer  $answer)
     {
         $this->authorize('update',$answer);
 
-         $answer= Answer::where('id',$answer)->first();
 
         $answer->update([
             'description'=>$request->description
@@ -100,11 +96,11 @@ class AnswerController extends Controller
      * @param  \App\Answer  $answer
      * @return \Illuminate\Http\Response
      */
-    public function destroy($question, $answer)
+    public function destroy($question, Answer $answer)
     {
-         $this->authorize('delete',$answer);
-              $answer = Answer::where('id',$answer)->first();
 
+
+            $this->authorize('delete',$answer);
             $answer->delete();
           return redirect(route('question.show',$question))->with('message','Your answer has been deleted Successfully');
     }

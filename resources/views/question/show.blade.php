@@ -25,7 +25,7 @@
               </div>
           </div>
          <p>
-             {{$question->description}}
+             {!!$question->description!!}
         </p>
       </div>
       @if (session('message'))
@@ -39,7 +39,7 @@
           <div class=" tutorial-item mb-4">
                       <div>
 
-                      <p>{{($answer->description)}}</p>
+                      <p>{!!$answer->description!!}</p>
 
 
                         <p class="meta">
@@ -114,7 +114,7 @@
                 @csrf
 
                   <div class="form-group">
-                    <textarea name="description"class="form-control" rows="6" placeholder="Type your Answer here!"></textarea>
+                    <textarea name="description" id="editor"class="form-control" rows="6" placeholder="Type your Answer here!"></textarea>
                   </div>
                   <div class="d-flex">
                     <input type="submit" class="btn btn-primary ml-auto" value="Submit">
@@ -124,4 +124,11 @@
         </div>
      </div>
  </div>
+@endsection
+@section('extra-js')
+       <script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+        <script>
+            CKEDITOR.replace( 'editor' );
+        </script>
+
 @endsection

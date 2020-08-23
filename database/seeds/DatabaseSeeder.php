@@ -17,6 +17,8 @@ class DatabaseSeeder extends Seeder
     {
          //$this->call(UserSeeder::class);
         // factory(Question::class,20)->create();
-        factory(Answer::class,40)->create();
+        //factory(Answer::class,50)->create();
+        factory(Question::class,20)->create();
+        factory(Answer::class,50)->create();
     }
 }
